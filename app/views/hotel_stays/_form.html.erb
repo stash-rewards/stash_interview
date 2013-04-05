@@ -1,0 +1,29 @@
+<%= form_for(@hotel_stay) do |f| %>
+  <% if @hotel_stay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hotel_stay.errors.count, "error") %> prohibited this hotel_stay from being saved:</h2>
+
+      <ul>
+      <% @hotel_stay.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hotel_id %><br />
+    <%= f.select :hotel_id, options_for_select(Hotel.all.collect { |h| [ h.name, h.id ] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br />
+    <%= f.select :member_id, options_for_select(Member.all.collect { |h| [ h.name, h.id ] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :checkout_at %><br />
+    <%= f.date_select :checkout_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interview</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<ul class="navigation">
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Hotels', hotels_path %></li>
+  <li><%= link_to 'Members', members_path %></li>
+  <li><%= link_to 'Hotel Stays', hotel_stays_path %></li>
+  <li><%= link_to 'Hotel Reviews', hotel_reviews_path %></li>
+</ul>
+
+<%= yield %>
+
+</body>
+</html>
