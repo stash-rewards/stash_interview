@@ -14,7 +14,7 @@ based on their past behavior.
 2. Install git and bundler if you haven't already.
 
 3. Clone this repo from github:
-     git clone https://github.com/daws/stash_interview.git
+     git clone https://github.com/stash-rewards/stash_interview.git
 
 4. Go into the stash_interview directory, and run the following:
      $ bundle install
