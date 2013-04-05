@@ -62,4 +62,4 @@ part, have warnings/gotchas about your solution, or have any thoughts on what
 you'd like to improve next if this were a real life project, feel free to
 include some notes.
 
-Good luck!
+Have fun!
