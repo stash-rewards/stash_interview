@@ -1,8 +1,10 @@
 == Welcome to Stash 2.0
 
 You've started at Stash, and the next big thing is personalized recommendations
-for our members - promotion to them the hotels that they're most likely to be
-interested in based on their past behavior.
+for our members.
+
+We'd like to promote the hotels that they're most likely to be interested in
+based on their past behavior.
 
 === Get up and running
 
