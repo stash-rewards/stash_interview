@@ -41,7 +41,7 @@ takes a member and a date and returns the name of the recommended hotel would
 be fine. Some basic unit tests would be a plus.
 
 We <b>DO NOT</b> want to consider behavior of other members in the network (ie.
-recommend hotels based on behavior of similar users. This will be a great feature
+recommend hotels based on behavior of similar users). This will be a great feature
 in the future, but we want the scope/complexity limited for this first iteration.
 
 === The tools
