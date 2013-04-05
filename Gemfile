@@ -16,4 +16,5 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'debugger'
+  gem 'factory_girl'
 end

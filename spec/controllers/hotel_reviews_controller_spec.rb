@@ -20,11 +20,18 @@ require 'spec_helper'
 
 describe HotelReviewsController do
 
+  let(:hotel) { FactoryGirl.create(:hotel) }
+  let(:member) { FactoryGirl.create(:member) }
+  
   # This should return the minimal set of attributes required to create a valid
   # HotelReview. As you add validations to HotelReview, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    { "hotel_id" => "1" }
+  let(:valid_attributes) do
+    {
+      hotel_id: hotel.id,
+      member_id: member.id,
+      score: 7
+    }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -36,7 +43,7 @@ describe HotelReviewsController do
 
   describe "GET index" do
     it "assigns all hotel_reviews as @hotel_reviews" do
-      hotel_review = HotelReview.create! valid_attributes
+      hotel_review = FactoryGirl.create(:hotel_review)
       get :index, {}, valid_session
       assigns(:hotel_reviews).should eq([hotel_review])
     end
@@ -44,7 +51,7 @@ describe HotelReviewsController do
 
   describe "GET show" do
     it "assigns the requested hotel_review as @hotel_review" do
-      hotel_review = HotelReview.create! valid_attributes
+      hotel_review = FactoryGirl.create(:hotel_review)
       get :show, {:id => hotel_review.to_param}, valid_session
       assigns(:hotel_review).should eq(hotel_review)
     end
@@ -59,7 +66,7 @@ describe HotelReviewsController do
 
   describe "GET edit" do
     it "assigns the requested hotel_review as @hotel_review" do
-      hotel_review = HotelReview.create! valid_attributes
+      hotel_review = FactoryGirl.create(:hotel_review)
       get :edit, {:id => hotel_review.to_param}, valid_session
       assigns(:hotel_review).should eq(hotel_review)
     end
@@ -105,7 +112,7 @@ describe HotelReviewsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested hotel_review" do
-        hotel_review = HotelReview.create! valid_attributes
+        hotel_review = FactoryGirl.create(:hotel_review)
         # Assuming there are no other hotel_reviews in the database, this
         # specifies that the HotelReview created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -115,13 +122,13 @@ describe HotelReviewsController do
       end
 
       it "assigns the requested hotel_review as @hotel_review" do
-        hotel_review = HotelReview.create! valid_attributes
+        hotel_review = FactoryGirl.create(:hotel_review)
         put :update, {:id => hotel_review.to_param, :hotel_review => valid_attributes}, valid_session
         assigns(:hotel_review).should eq(hotel_review)
       end
 
       it "redirects to the hotel_review" do
-        hotel_review = HotelReview.create! valid_attributes
+        hotel_review = FactoryGirl.create(:hotel_review)
         put :update, {:id => hotel_review.to_param, :hotel_review => valid_attributes}, valid_session
         response.should redirect_to(hotel_review)
       end
@@ -129,7 +136,7 @@ describe HotelReviewsController do
 
     describe "with invalid params" do
       it "assigns the hotel_review as @hotel_review" do
-        hotel_review = HotelReview.create! valid_attributes
+        hotel_review = FactoryGirl.create(:hotel_review)
         # Trigger the behavior that occurs when invalid params are submitted
         HotelReview.any_instance.stub(:save).and_return(false)
         put :update, {:id => hotel_review.to_param, :hotel_review => { "hotel_id" => "invalid value" }}, valid_session
@@ -137,7 +144,7 @@ describe HotelReviewsController do
       end
 
       it "re-renders the 'edit' template" do
-        hotel_review = HotelReview.create! valid_attributes
+        hotel_review = FactoryGirl.create(:hotel_review)
         # Trigger the behavior that occurs when invalid params are submitted
         HotelReview.any_instance.stub(:save).and_return(false)
         put :update, {:id => hotel_review.to_param, :hotel_review => { "hotel_id" => "invalid value" }}, valid_session
@@ -148,14 +155,14 @@ describe HotelReviewsController do
 
   describe "DELETE destroy" do
     it "destroys the requested hotel_review" do
-      hotel_review = HotelReview.create! valid_attributes
+      hotel_review = FactoryGirl.create(:hotel_review)
       expect {
         delete :destroy, {:id => hotel_review.to_param}, valid_session
       }.to change(HotelReview, :count).by(-1)
     end
 
     it "redirects to the hotel_reviews list" do
-      hotel_review = HotelReview.create! valid_attributes
+      hotel_review = FactoryGirl.create(:hotel_review)
       delete :destroy, {:id => hotel_review.to_param}, valid_session
       response.should redirect_to(hotel_reviews_url)
     end

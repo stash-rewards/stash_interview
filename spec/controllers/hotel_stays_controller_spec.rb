@@ -20,11 +20,18 @@ require 'spec_helper'
 
 describe HotelStaysController do
 
+  let(:hotel) { FactoryGirl.create(:hotel) }
+  let(:member) { FactoryGirl.create(:member) }
+
   # This should return the minimal set of attributes required to create a valid
   # HotelStay. As you add validations to HotelStay, be sure to
   # update the return value of this method accordingly.
-  def valid_attributes
-    { "hotel_id" => "1" }
+  let(:valid_attributes) do
+    {
+      hotel_id: hotel.id,
+      member_id: member.id,
+      checkout_at: Date.civil(2013, 2, 6)
+    }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -36,7 +43,7 @@ describe HotelStaysController do
 
   describe "GET index" do
     it "assigns all hotel_stays as @hotel_stays" do
-      hotel_stay = HotelStay.create! valid_attributes
+      hotel_stay = FactoryGirl.create(:hotel_stay)
       get :index, {}, valid_session
       assigns(:hotel_stays).should eq([hotel_stay])
     end
@@ -44,7 +51,7 @@ describe HotelStaysController do
 
   describe "GET show" do
     it "assigns the requested hotel_stay as @hotel_stay" do
-      hotel_stay = HotelStay.create! valid_attributes
+      hotel_stay = FactoryGirl.create(:hotel_stay)
       get :show, {:id => hotel_stay.to_param}, valid_session
       assigns(:hotel_stay).should eq(hotel_stay)
     end
@@ -59,7 +66,7 @@ describe HotelStaysController do
 
   describe "GET edit" do
     it "assigns the requested hotel_stay as @hotel_stay" do
-      hotel_stay = HotelStay.create! valid_attributes
+      hotel_stay = FactoryGirl.create(:hotel_stay)
       get :edit, {:id => hotel_stay.to_param}, valid_session
       assigns(:hotel_stay).should eq(hotel_stay)
     end
@@ -105,7 +112,7 @@ describe HotelStaysController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested hotel_stay" do
-        hotel_stay = HotelStay.create! valid_attributes
+        hotel_stay = FactoryGirl.create(:hotel_stay)
         # Assuming there are no other hotel_stays in the database, this
         # specifies that the HotelStay created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -115,13 +122,13 @@ describe HotelStaysController do
       end
 
       it "assigns the requested hotel_stay as @hotel_stay" do
-        hotel_stay = HotelStay.create! valid_attributes
+        hotel_stay = FactoryGirl.create(:hotel_stay)
         put :update, {:id => hotel_stay.to_param, :hotel_stay => valid_attributes}, valid_session
         assigns(:hotel_stay).should eq(hotel_stay)
       end
 
       it "redirects to the hotel_stay" do
-        hotel_stay = HotelStay.create! valid_attributes
+        hotel_stay = FactoryGirl.create(:hotel_stay)
         put :update, {:id => hotel_stay.to_param, :hotel_stay => valid_attributes}, valid_session
         response.should redirect_to(hotel_stay)
       end
@@ -129,7 +136,7 @@ describe HotelStaysController do
 
     describe "with invalid params" do
       it "assigns the hotel_stay as @hotel_stay" do
-        hotel_stay = HotelStay.create! valid_attributes
+        hotel_stay = FactoryGirl.create(:hotel_stay)
         # Trigger the behavior that occurs when invalid params are submitted
         HotelStay.any_instance.stub(:save).and_return(false)
         put :update, {:id => hotel_stay.to_param, :hotel_stay => { "hotel_id" => "invalid value" }}, valid_session
@@ -137,7 +144,7 @@ describe HotelStaysController do
       end
 
       it "re-renders the 'edit' template" do
-        hotel_stay = HotelStay.create! valid_attributes
+        hotel_stay = FactoryGirl.create(:hotel_stay)
         # Trigger the behavior that occurs when invalid params are submitted
         HotelStay.any_instance.stub(:save).and_return(false)
         put :update, {:id => hotel_stay.to_param, :hotel_stay => { "hotel_id" => "invalid value" }}, valid_session
@@ -148,14 +155,14 @@ describe HotelStaysController do
 
   describe "DELETE destroy" do
     it "destroys the requested hotel_stay" do
-      hotel_stay = HotelStay.create! valid_attributes
+      hotel_stay = FactoryGirl.create(:hotel_stay)
       expect {
         delete :destroy, {:id => hotel_stay.to_param}, valid_session
       }.to change(HotelStay, :count).by(-1)
     end
 
     it "redirects to the hotel_stays list" do
-      hotel_stay = HotelStay.create! valid_attributes
+      hotel_stay = FactoryGirl.create(:hotel_stay)
       delete :destroy, {:id => hotel_stay.to_param}, valid_session
       response.should redirect_to(hotel_stays_url)
     end
