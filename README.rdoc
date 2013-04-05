@@ -7,14 +7,14 @@ interested in based on their past behavior.
 === Get up and running
 
 1. Make sure you have a ruby 1.9.3 environment running. If you don't, check out
-    RVM for linux/OS X, or Pik for windows.
+RVM for linux/OS X, or Pik for windows.
 
 2. Install git and bundler if you haven't already.
 
-3. Clone this repo from github: git clone https://github.com/daws/stash_interview.git
+3. Clone this repo from github:
+  git clone https://github.com/daws/stash_interview.git
 
 4. Go into the stash_interview directory, and run the following:
-
   $ bundle install
   $ rake db:migrate
   $ rake db:seed
@@ -31,8 +31,8 @@ Before we can get into the world of fancy UIs and a complex recommendation
 engine, we need a starting point. In the spirit of agile, iterative improvement,
 this project will be to create a basic algorithm:
 
-  For a given member and date, pick a hotel to recommend to the member based on
-  their past behavior.
+For a given member and date, pick a hotel to recommend to the member based on
+their past behavior.
 
 The UI doesn't matter, but we want a way to test it out. For example, a form that
 takes a member and a date and returns the name of the recommended hotel would
@@ -46,7 +46,7 @@ in the future, but we want the scope/complexity limited for this first iteration
 
 Basic rails scaffolding is set up for all the models already. There's a test set
 of seed data in db/seeds.rb (added to your local database when you ran
-"rake db:seed" that you can use to experiment. Feel free to add more of your
+"rake db:seed") that you can use to experiment. Feel free to add more of your
 own data through the seed file, fixtures, or manually.
 
 RSpec is all set up and all tests pass in the project now. If you are familiar
