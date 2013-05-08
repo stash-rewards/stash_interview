@@ -1,4 +1,4 @@
-== Welcome to Stash 2.0
+= Welcome to Stash 2.0
 
 You've started at Stash, and the next big thing is personalized recommendations
 for our members.
@@ -6,7 +6,38 @@ for our members.
 We'd like to promote the hotels that they're most likely to be interested in
 based on their past behavior.
 
-=== Get up and running
+== The project/expectations
+
+Before we can get into the world of fancy UIs and a complex recommendation
+engine, we need a starting point. In the spirit of agile, iterative improvement,
+this project will be to create a basic algorithm:
+
+<b>For a given member and date, pick a hotel to recommend to the member based on
+their past behavior.</b>
+
+You have two options - implement the algorithm in the provided rails app which is
+seeded with a test data set, or use the provided test data set (CSV files) and
+implement it in your language of choice between Java, C++, or C#.
+
+The UI doesn't matter, but we need a way to test it out. If using the rails app,
+a form that takes a member and a date and returns the name of the recommended
+hotel would be fine. If making a java app, a command line that prompts for a
+member/date and outputs the hotel would work. Some basic unit tests would be a
+plus.
+
+We <b>DO NOT</b> want to the algorithm to factor in similar behavior of other
+members in the network, (ala Amazon's "Customers who bought this item also
+bought"). This will be a great feature in the future, but we want the
+scope/complexitylimited for this first iteration.
+
+== Implementation
+
+If you have experience with rails, then follow the rails instructions below,
+otherwise follow the instructions under "Java, C++, or C#".
+
+=== Rails
+
+==== Get up and running
 
 1. Make sure you have a ruby 1.9.3 environment running. If you don't, check out
    RVM for linux/OS X, or Pik for windows.
@@ -27,24 +58,7 @@ based on their past behavior.
 You should have a rails application up and running, and be able to navigate it
 in your browser.
 
-=== The project/expectations
-
-Before we can get into the world of fancy UIs and a complex recommendation
-engine, we need a starting point. In the spirit of agile, iterative improvement,
-this project will be to create a basic algorithm:
-
-<b>For a given member and date, pick a hotel to recommend to the member based on
-their past behavior.</b>
-
-The UI doesn't matter, but we want a way to test it out. For example, a form that
-takes a member and a date and returns the name of the recommended hotel would
-be fine. Some basic unit tests would be a plus.
-
-We <b>DO NOT</b> want to consider behavior of other members in the network (ie.
-recommend hotels based on behavior of similar users). This will be a great feature
-in the future, but we want the scope/complexity limited for this first iteration.
-
-=== The tools
+==== The tools
 
 Basic rails scaffolding is set up for all the models already. There's a test set
 of seed data in db/seeds.rb (added to your local database when you ran
@@ -54,12 +68,34 @@ own data through the seed file, fixtures, or manually.
 RSpec is all set up and all tests pass in the project now. If you are familiar
 with a different test framework, feel free to use that instead.
 
-=== Submission
+=== Java, C++, or C#
+
+If you aren't familiar with rails, feel free to pick your language of choice
+between Java, C++, and C#.
+
+There are two CSV files for you to use as a test data set under the "raw_data"
+folder in this project above. For some context, browse the seed file under
+db/seeds.rb. It's the same data, but the seed file contains some comments that
+explains the data set.
+
+Create a simple application that lets you run your algorithm. It could be as
+simple as passing in the member and date as command-line arguments, and
+outputting the recommended hotel. Or if prompting for the inputs is easer
+that's fine as well.
+
+Feel free to simply read in the CSV files for stays and reviews at runtime
+(you don't need to create a database or anything). The goal of this task is to
+come up with and implement an algorithm, not to develop a full-featured
+application.
+
+== Submission
 
 When you're done, just tar or zip up your entire project directory (database
 included) and email it to david@stashrewards.com. If you don't finish a certain
 part, have warnings/gotchas about your solution, or have any thoughts on what
 you'd like to improve next if this were a real life project, feel free to
 include some notes.
+
+And feel free to email david@stashrewards.com if you have any questions.
 
 Have fun!
