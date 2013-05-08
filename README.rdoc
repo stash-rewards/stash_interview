@@ -28,7 +28,7 @@ plus.
 We <b>DO NOT</b> want to the algorithm to factor in similar behavior of other
 members in the network, (ala Amazon's "Customers who bought this item also
 bought"). This will be a great feature in the future, but we want the
-scope/complexitylimited for this first iteration.
+scope/complexity limited for this first iteration.
 
 == Implementation
 
@@ -88,14 +88,19 @@ Feel free to simply read in the CSV files for stays and reviews at runtime
 come up with and implement an algorithm, not to develop a full-featured
 application.
 
+You can download the files by cloning the repository, or just by navigating
+to them above (under the raw_data folder) and copying them.
+
 == Submission
 
 When you're done, just tar or zip up your entire project directory (database
-included) and email it to david@stashrewards.com. If you don't finish a certain
-part, have warnings/gotchas about your solution, or have any thoughts on what
-you'd like to improve next if this were a real life project, feel free to
-include some notes.
+included) and email it to david@stashrewards.com. If you're using Java/C++/C#,
+please provide a quick synopsis that shows how to run the application.
 
-And feel free to email david@stashrewards.com if you have any questions.
+If you don't finish a certain part, have warnings/gotchas about your solution,
+or have any thoughts on what you'd like to improve next if this were a real
+life project, feel free to include some notes.
+
+And email david@stashrewards.com if you have any questions.
 
 Have fun!
