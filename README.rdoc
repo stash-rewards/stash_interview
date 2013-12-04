@@ -25,7 +25,7 @@ hotel would be fine. If making a java app, a command line that prompts for a
 member/date and outputs the hotel would work. Some basic unit tests would be a
 plus.
 
-We <b>DO NOT</b> want to the algorithm to factor in similar behavior of other
+We <b>DO NOT</b> want the algorithm to factor in similar behavior of other
 members in the network, (ala Amazon's "Customers who bought this item also
 bought"). This will be a great feature in the future, but we want the
 scope/complexity limited for this first iteration.
