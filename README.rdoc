@@ -21,9 +21,9 @@ implement it in your language of choice between Java, C++, or C#.
 
 The UI doesn't matter, but we need a way to test it out. If using the rails app,
 a form that takes a member and a date and returns the name of the recommended
-hotel would be fine. If making a java app, a command line that prompts for a
-member/date and outputs the hotel would work. Some basic unit tests would be a
-plus.
+hotel would be fine. If making a java app, a command line app that takes a
+member/date as command-line arguments or that prompts for a member/date and
+outputs the hotel would work. Some basic unit tests would be a plus.
 
 We <b>DO NOT</b> want the algorithm to factor in similar behavior of other
 members in the network, (ala Amazon's "Customers who bought this item also
@@ -32,22 +32,23 @@ scope/complexity limited for this first iteration.
 
 == Implementation
 
-If you have experience with rails, then follow the rails instructions below,
-otherwise follow the instructions under "Java, C++, or C#".
+If you have experience with Ruby/Rails or Java, then follow the appropriate
+language-specific instructions below, otherwise follow the instructions under
+"C++ or C#".
 
 === Rails
 
 ==== Get up and running
 
-1. Make sure you have a ruby 1.9.3 environment running. If you don't, check out
-   RVM for linux/OS X, or Pik for windows.
+1. Make sure you have a ruby 1.9.3 or greater environment running. If you
+   don't, check out rbenv for linux/OS X, or Pik for windows.
 
 2. Install git and bundler if you haven't already.
 
 3. Clone this repo from github:
      git clone https://github.com/stash-rewards/stash_interview.git
 
-4. Go into the stash_interview directory, and run the following:
+4. Go into the stash_interview/ruby directory, and run the following:
      $ bundle install
      $ rake db:migrate
      $ rake db:seed
@@ -65,18 +66,86 @@ of seed data in db/seeds.rb (added to your local database when you ran
 "rake db:seed") that you can use to experiment. Feel free to add more of your
 own data through the seed file, fixtures, or manually.
 
-RSpec is all set up and all tests pass in the project now. If you are familiar
-with a different test framework, feel free to use that instead.
+You should open up the db/seeds.rb file and read through the comments to get an
+idea of the data provided for you (for testing purposes).
 
-=== Java, C++, or C#
+RSpec is all set up and all tests pass in the project now. Simply run "rake spec"
+to execute them. If you are familiar with a different test framework, feel free
+to use that instead.
 
-If you aren't familiar with rails, feel free to pick your language of choice
-between Java, C++, and C#.
+==== Go!
+
+Implement your algorithm however you see fit. UI *truly* does not matter, so
+don't spend a bunch of time spinning up a GUI with fancy stylesheets and
+icons/etc.
+
+The easiest way to get started is probably to add a new controller/view/tests
+with "rails g scaffold", and use a simple form that has two inputs - one for
+member and one for date. When it's submitted, simply output your result on a
+result page or in the flash - whatever you prefer.
+
+Focus should be on creating a logical algorithm and writing good code, not on
+getting the app to look good.
+
+=== Java
+
+==== Get up and running
+
+To make it easier to bootstrap an application, there is a command-line
+Java application that will parse the CSV files, loading the data into a list of
+objects you can work with/modify as you see fit.
+
+If you typically use Eclipse or some other IDE to code/compile Java, feel free
+to use that, but here are instructions for compiling/running the application
+from the command line.
+
+1. Make sure you have Java 6 or greater SDK installed
+
+2. Install git if you haven't already.
+
+3. Clone this repo from github:
+     git clone https://github.com/stash-rewards/stash_interview.git
+
+4. Go into the stash_interview/java directory, and run the following:
+     $ javac -d bin -cp "bin" -sourcepath src src/StashInterview.java
+     $ java -cp "bin" StashInterview
+
+You should get simple text output stating that files were successfully parsed
+and your implementation is ready to be built.
+
+==== Familiarize yourself with the test data
+
+Open up the db/seeds.rb file in the ruby directory and read through the comments
+to get an idea of the data provided for you (for testing purposes).
+
+This data is identical to the CSV data loaded from the raw_data folder.
+
+Feel free to add to/modify the CSV data to suit your test needs, but make sure
+to edit the CSV files in the raw_data folder instead of the db/seeds.rb file
+(the seeds.rb file is used only by the ruby app).
+
+==== Go!
+
+Implement your algorithm however you see fit. UI *truly* does not matter, so
+don't spend a bunch of time spinning up a GUI with buttons and icons/etc.
+
+The easiest way to get started is probably to use command line arguments (in
+the String array passed to your main method) to collect the member and date as
+input, pass that to a function where your algorithm is implemented, and then
+output your result using System.out.println().
+
+Focus should be on creating a logical algorithm and writing good code, not on
+getting the app to look good.
+
+=== C++, or C#
+
+If you aren't familiar with Ruby or Java, feel free to pick your language of
+choice between C++ and C#.
 
 There are two CSV files for you to use as a test data set under the "raw_data"
 folder in this project above. For some context, browse the seed file under
-db/seeds.rb. It's the same data, but the seed file contains some comments that
-explains the data set.
+db/seeds.rb, which contains comments that explain the members and reviews. The
+raw_data files contain the same data as the seeds.rb file.
 
 Create a simple application that lets you run your algorithm. It could be as
 simple as passing in the member and date as command-line arguments, and

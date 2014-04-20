@@ -5,11 +5,13 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore bundler config
-/.bundle
+/ruby/.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
+/ruby/db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+/ruby/log/*.log
+/ruby/tmp
+
+/java/bin/*.class
