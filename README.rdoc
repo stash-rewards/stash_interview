@@ -113,6 +113,9 @@ from the command line.
 You should get simple text output stating that files were successfully parsed
 and your implementation is ready to be built.
 
+Every time you make changes to the source in the src/ directory, simply run
+those two lines again to compile/execute your updated code.
+
 ==== Familiarize yourself with the test data
 
 Open up the db/seeds.rb file in the ruby directory and read through the comments
